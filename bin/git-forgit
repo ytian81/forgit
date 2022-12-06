@@ -457,7 +457,7 @@ _forgit_checkout_branch() {
     preview="git log {1} $_forgit_log_preview_options"
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
-        +s +m --tiebreak=index --header-lines=1
+        +s +m --tiebreak=index --header-lines=0
         --preview=\"$preview\"
         $FORGIT_CHECKOUT_BRANCH_FZF_OPTS
         "
