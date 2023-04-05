@@ -356,7 +356,7 @@ _forgit_cherry_pick_from_branch() {
     if [[ $# -ne 0 ]]; then
         input_branch=${args[0]}
     fi
-    cmd="git branch --color=always --all | LC_ALL=C sort -k1.1,1.1 -rs"
+    cmd="git branch --color=always ${FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS:---all} | LC_ALL=C sort -k1.1,1.1 -rs"
     preview="git log --right-only --color=always --cherry-pick --oneline $base...{1}"
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
