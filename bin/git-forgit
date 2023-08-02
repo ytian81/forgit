@@ -454,7 +454,7 @@ _forgit_checkout_branch() {
 
     local git_checkout cmd preview opts branch
     cmd="git branch --color=always ${FORGIT_CHECKOUT_BRANCH_BRANCH_GIT_OPTS:---all} | LC_ALL=C sort -k1.1,1.1 -rs"
-    preview="git log {1} $_forgit_log_preview_options"
+    preview="git log {-1} $_forgit_log_preview_options"
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
         +s +m --tiebreak=index --header-lines=0
