@@ -238,8 +238,9 @@ _forgit_stash_show() {
         $FORGIT_FZF_DEFAULT_OPTS
         +s +m -0 --tiebreak=index --bind=\"enter:execute($cmd | $_forgit_enter_pager)\"
         --bind=\"ctrl-y:execute-silent(echo {} | cut -d: -f1 | tr -d '[:space:]' | ${FORGIT_COPY_CMD:-pbcopy})\"
-        --bind=\"ctrl-l:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash pop)\"
-        --bind=\"ctrl-h:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash drop)\"
+        --bind=\"ctrl-p:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash pop)\"
+        --bind=\"ctrl-o:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash drop)\"
+        --header 'ctrl-p to pop, ctrl-o to drop'
         --preview=\"$cmd\"
         $FORGIT_STASH_FZF_OPTS
     "
