@@ -152,6 +152,7 @@ _forgit_diff() {
         $FORGIT_FZF_DEFAULT_OPTS
         +m -0 --bind=\"enter:execute($enter_cmd | $_forgit_enter_pager)\"
         --preview=\"$preview_cmd\"
+        --bind=\"ctrl-y:execute-silent(echo {} | awk '{print \$2}' | ${FORGIT_COPY_CMD:-pbcopy})\"
         --bind=\"alt-e:execute-silent($EDITOR \\\"\$\($get_file)\\\" >/dev/tty </dev/tty)+refresh-preview\"
         $FORGIT_DIFF_FZF_OPTS
         --prompt=\"$commits > \"
