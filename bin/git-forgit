@@ -32,7 +32,6 @@ $FZF_DEFAULT_OPTS
 --bind='ctrl-s:toggle-sort'
 --bind='?:toggle-preview'
 --bind='alt-w:toggle-preview-wrap'
---preview-window='right:60%'
 +1
 $FORGIT_FZF_DEFAULT_OPTS
 "
@@ -240,7 +239,8 @@ _forgit_stash_show() {
         --bind=\"ctrl-y:execute-silent(echo {} | cut -d: -f1 | tr -d '[:space:]' | ${FORGIT_COPY_CMD:-pbcopy})\"
         --bind=\"ctrl-p:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash pop)\"
         --bind=\"ctrl-q:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash drop)\"
-        --header=\"$(printf ':: Press \033[38;5;208mCTRL-P\033[0m to pop, \033[38;5;208mCTRL-Q\033[0m to drop')\"
+        --bind=\"ctrl-o:become(echo {} | cut -d: -f1 | tr -d '[:space:]' | xargs git stash apply)\"
+        --header=\"$(printf ':: Press \033[38;5;208mCTRL-P\033[0m to pop, \033[38;5;208mCTRL-Q\033[0m to drop, \033[38;5;208mCTRL-O\033[0m to apply')\"
         --preview=\"$cmd\"
         $FORGIT_STASH_FZF_OPTS
     "
